@@ -1,0 +1,81 @@
+{
+  "name": "abt-components",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/abt-components.esm.js",
+  "author": "George Bockari <bitwhys@cr8iv.io>",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build && yarn build-tailwind",
+    "test": "tsdx test --passWithNoTests",
+    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify",
+    "lint": "tsdx lint",
+    "prepare": "yarn build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "size-limit": [
+    {
+      "path": "dist/abt-components.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/abt-components.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addons": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.4.5",
+    "babel-loader": "^8.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^7.0.4",
+    "postcss": "^8.4.12",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-is": "^18.1.0",
+    "size-limit": "^7.0.8",
+    "tailwindcss": "^3.0.24",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.6.0"
+  }
+}
